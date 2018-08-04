@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+// font
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+  font-family: "Noto Sans TC";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.skill-button{
+  width: 104px;
+  height: 104px;
+  background-color: rgba(0,147,255,0.35);
+  box-shadow: 0 3px 6px rgba(0,147,255,0.44);
+  border-radius: 39px;
+  margin: 1em;
+  cursor: pointer;
+  border:12px solid;
+  &.locked{
+    border-color: rgba(92,92,92,0.62)
+  }
+  &.empty{
+    border-color: rgba(255,255,255,0.62)
+  }
+  &.selected{
+    border-color:rgba(87,145,255,0.62)
+  }
+}
