@@ -1,4 +1,16 @@
-<div class="skill-button locked"></div>
+<!-- <div class="skill-button locked"></div>
 <div class="skill-button empty"></div>
 <div class="skill-button selectrd"></div>
-<img src="assets/images/img_axe.png">
+<img src="assets/images/img_axe.png"> -->
+<div class="container">
+  <span class="skill-container"  *ngFor="let skill of skills" [ngStyle]="buttonPosition(skill.x,skill.y)">
+    <div (click)="changeState(skill)" [ngClass]="skill.state"  class="skill-button locked">
+        <img [src]="skill.imgPath">
+    </div>
+    <div class="skill-text">
+      <span>
+        {{skill.label}}
+      </span>
+    </div>
+  </span>
+</div>
