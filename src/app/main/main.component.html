@@ -1,9 +1,6 @@
-<!-- <div class="skill-button locked"></div>
-<div class="skill-button empty"></div>
-<div class="skill-button selectrd"></div>
-<img src="assets/images/img_axe.png"> -->
 <div class="container">
   <div class="title">
+    <img src="assets/images/img_illustration@2x.png">
     <div class="zh">
       介面設計師轉職之路
     </div>
@@ -21,6 +18,9 @@
       </span>
     </div>
   </span>
+  <div class="dialog-animal" *ngIf="showDialog">
+    <img src="assets/images/img_monocat.png" >
+  </div>
   <div class="dialog" *ngIf="showDialog">
     <div class="dialog-pic">
       <img [src]="dialogImgPath">
@@ -35,4 +35,7 @@
 
     </div>
   </div>
+  <footer>
+    <img src="assets/images/img_footer.png" >
+  </footer>
 </div>

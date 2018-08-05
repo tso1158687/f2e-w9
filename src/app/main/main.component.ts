@@ -25,11 +25,11 @@ export class MainComponent implements OnInit {
     this.skills.forEach(e => {
       e.y = e.y + 300;
       e.imgPath = 'assets/images/img_' + e.id + '.png';
-      e.state = 'locked';
+      // e.state = 'locked';
+      e.state = 'empty';
     });
     this.skills[0].state = 'empty';
     this.skills[2].state = 'empty';
-    console.log(this.skills);
   }
   buttonPosition(x, y) {
     const style = {
@@ -40,30 +40,6 @@ export class MainComponent implements OnInit {
   }
   changeState(skill) {
     this.processDialog(skill);
-    // console.log(skill);
-    this.skills.forEach(e => {
-      const target = e.prev.length;
-      let count = 0;
-      e.prev.forEach(i => {
-        this.skills.forEach(j => {
-          if (i === j.id && j.state === 'locked') {
-            count++;
-          }
-        });
-      });
-      if (count === target) {
-        e.state = 'empty';
-      }
-      // e.prev.forEach(i => {
-      //   console.log(e.id);
-      //   console.log(i);
-      //   console.log('===');
-      //   if (e.id === i) {
-      //     console.log('asd');
-      //     e.state = 'empty';
-      //   }
-      // });
-    });
     switch (skill.state) {
       case 'empty':
       skill.state = 'selected';
@@ -72,12 +48,32 @@ export class MainComponent implements OnInit {
       skill.state = 'empty';
       break;
     }
+    // this.skills.forEach(e => {
+    //   const total = e.prev.length;
+    //   let count = 0;
+    //   e.prev.forEach(i => {
+    //     this.skills.forEach(j => {
+    //       if (i === j.id) {
+    //         console.log(i, j.id, j.state);
+    //         if (j.state === 'selected') {
+    //           console.log('?');
+    //           count ++;
+    //           console.log(count);
+    //         }
+    //       }
+    //     });
+    //   });
+    //   console.log(total);
+    //   console.log(count);
+    //   console.log('--');
+    //   if (total === count) {
+    //     console.log('!');
+    //     e.state = 'empty';
+    //   }
+    // });
   }
   processDialog(skill) {
-    // showDialog = false;
-    // dialogImgPath: any;
-    // dialogContent: any;
-    this.showDialog = true;
+    // this.showDialog = true;
     this.dialogImgPath = 'assets/images/img_' + skill.id + '@2x.png';
     this.dialogContentDesc = skill.content;
     this.dialogContentTitle = skill.label;

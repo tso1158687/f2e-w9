@@ -9,18 +9,21 @@
 
 .container {
   width: 2000px;
-  height: 1250px;
+  height: 1450px;
   background-image: linear-gradient(to top, #301a3b, #10030a);
-  padding: 80px;
   overflow: hidden;
   .title {
+    padding: 80px;
     color: white;
     text-shadow: 0 1px 4px #0093FF;
     .zh {
       font-size: 79px;
+      display: inline-block;
+      padding-left: 40px;
     }
     .en {
       font-size: 69px;
+      padding-left: 165px;
     }
   }
 }
@@ -28,6 +31,7 @@
 .skill-container {
   position: absolute;
   .skill-button {
+    z-index: 50;
     position: relative; // position: absolute;;
     width: 104px;
     height: 104px;
@@ -71,7 +75,8 @@
     }
   }
 }
-.dialog{
+
+.dialog {
   display: inline-block;
   background-color: #fff;
   height: 281px;
@@ -80,36 +85,56 @@
   border-radius: 65px;
   position: fixed;
   bottom: 20px;
-  left: 100px;
-
-  >div{
+  left: 150px;
+  z-index: 58;
+  >div {
     display: inline-block;
   }
-  .dialog-pic{
+  .dialog-pic {
     width: 215px;
     height: 100%;
     position: relative;
-    img{
+    img {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%) scale(0.7);
     }
   }
-  .dialog-content{
+  .dialog-content {
     width: 750px;
     height: 100%;
     font-size: 30px;
     position: relative;
     top: -50px;
-    .content-title{
+    .content-title {
       font-weight: bold;
       color: #505050;
-      height: 100px;
+      height: 50px;
     }
-    .dontent-desc{
-      color:#7B7B7B;
+    .content-desc {
+      color: #7B7B7B;
       height: 181px;
     }
+  }
+}
+
+.dialog-animal {
+  position: fixed;
+  bottom: 20px;
+  left: 0px;
+  z-index: 60;
+  img {
+    transform: scale(0.8);
+  }
+}
+
+footer {
+  z-index: 1;
+  position: relative;
+  left: 0;
+  top: 200px;
+  img {
+    width: 100%;
   }
 }
