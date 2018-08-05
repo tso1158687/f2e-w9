@@ -3,9 +3,17 @@
 <div class="skill-button selectrd"></div>
 <img src="assets/images/img_axe.png"> -->
 <div class="container">
-  <span class="skill-container"  *ngFor="let skill of skills" [ngStyle]="buttonPosition(skill.x,skill.y)">
-    <div (click)="changeState(skill)" [ngClass]="skill.state"  class="skill-button locked">
-        <img [src]="skill.imgPath">
+  <div class="title">
+    <div class="zh">
+      介面設計師轉職之路
+    </div>
+    <div class="en">
+      UI Designer Road Map
+    </div>
+  </div>
+  <span class="skill-container" *ngFor="let skill of skills" [ngStyle]="buttonPosition(skill.x,skill.y)">
+    <div (click)="changeState(skill)" [ngClass]="skill.state" class="skill-button locked">
+      <img [src]="skill.imgPath">
     </div>
     <div class="skill-text">
       <span>
@@ -13,4 +21,18 @@
       </span>
     </div>
   </span>
+  <div class="dialog" *ngIf="showDialog">
+    <div class="dialog-pic">
+      <img [src]="dialogImgPath">
+    </div>
+    <div class="dialog-content">
+      <div class="content-title">
+        {{dialogContentTitle}}
+      </div>
+      <div class="content-desc">
+        {{dialogContentDesc}}
+      </div>
+
+    </div>
+  </div>
 </div>

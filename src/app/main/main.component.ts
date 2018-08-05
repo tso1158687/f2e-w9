@@ -8,6 +8,10 @@ import { DataService } from '../data.service';
 })
 export class MainComponent implements OnInit {
   skills: any;
+  showDialog = false;
+  dialogImgPath: any;
+  dialogContentDesc: any;
+  dialogContentTitle: any;
   constructor(
     private dataService: DataService
   ) { }
@@ -19,7 +23,7 @@ export class MainComponent implements OnInit {
     this.skills = this.dataService.getSkills();
     // 處理圖片位置
     this.skills.forEach(e => {
-      e.y = e.y + 150;
+      e.y = e.y + 300;
       e.imgPath = 'assets/images/img_' + e.id + '.png';
       e.state = 'locked';
     });
@@ -35,39 +39,27 @@ export class MainComponent implements OnInit {
     return style;
   }
   changeState(skill) {
+    this.processDialog(skill);
     // console.log(skill);
     this.skills.forEach(e => {
-      // this.state[skill.id] === 'locked' &&
-      // skill.prev.every(prevID => this.state[prevID] === 'selected')
-      if (
-      e.state === 'locked' && e.prev.every(i => {
-        console.log(i);
-      })) {
-        console.log('?');
-      } else {
-        console.log('這裡');
+      const target = e.prev.length;
+      let count = 0;
+      e.prev.forEach(i => {
+        this.skills.forEach(j => {
+          if (i === j.id && j.state === 'locked') {
+            count++;
+          }
+        });
+      });
+      if (count === target) {
+        e.state = 'empty';
       }
-
-      // console.log(e);
-      // const target = e.prev.length;
-      // const count = 0;
       // e.prev.forEach(i => {
-      //   // console.log(i);
-      //   // console.log(e);
-      //   if (e.id === i && e.state === 'selected') {
+      //   console.log(e.id);
+      //   console.log(i);
+      //   console.log('===');
+      //   if (e.id === i) {
       //     console.log('asd');
-      //     skill.state = 'empty';
-      //   }
-      // });
-      // if (e.state === 'locked') {
-      //   console.log('locked');
-      // }
-      // e.prev.every(this.checkState());
-      // const target = e.prev.length;
-      // console.log(target);
-      // console.log(e.prev);
-      // e.prev.forEach((i, j, k) => {
-      //   if (i === skill.id) {
       //     e.state = 'empty';
       //   }
       // });
@@ -81,8 +73,14 @@ export class MainComponent implements OnInit {
       break;
     }
   }
-  checkState() {
-
+  processDialog(skill) {
+    // showDialog = false;
+    // dialogImgPath: any;
+    // dialogContent: any;
+    this.showDialog = true;
+    this.dialogImgPath = 'assets/images/img_' + skill.id + '@2x.png';
+    this.dialogContentDesc = skill.content;
+    this.dialogContentTitle = skill.label;
   }
 
 }

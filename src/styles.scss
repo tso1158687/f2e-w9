@@ -8,9 +8,21 @@
 }
 
 .container {
-  width: 100vw;
-  height: 100%;
-  position: relative;
+  width: 2000px;
+  height: 1250px;
+  background-image: linear-gradient(to top, #301a3b, #10030a);
+  padding: 80px;
+  overflow: hidden;
+  .title {
+    color: white;
+    text-shadow: 0 1px 4px #0093FF;
+    .zh {
+      font-size: 79px;
+    }
+    .en {
+      font-size: 69px;
+    }
+  }
 }
 
 .skill-container {
@@ -47,16 +59,57 @@
       transition: transform 0.3s cubic-bezier(0.64, 2.46, 0.63, 0.52)
     }
   }
-  .skill-text{
+  .skill-text {
     position: relative;
     left: 30px;
-    span{
-      font-size: 30px;
-      // color:white;
+    span {
+      font-size: 30px; // color:white;
       // border:0.5px solid #0032A5;
       // box-shadow: 0 1px 4px #0093FF;
-      text-shadow:0 1px 4px #0093FF;
+      color: white;
+      text-shadow: 0 1px 4px #0093FF;
     }
+  }
+}
+.dialog{
+  display: inline-block;
+  background-color: #fff;
+  height: 281px;
+  width: 1000px;
+  border: 10px solid #0093FF;
+  border-radius: 65px;
+  position: fixed;
+  bottom: 20px;
+  left: 100px;
 
+  >div{
+    display: inline-block;
+  }
+  .dialog-pic{
+    width: 215px;
+    height: 100%;
+    position: relative;
+    img{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+    }
+  }
+  .dialog-content{
+    width: 750px;
+    height: 100%;
+    font-size: 30px;
+    position: relative;
+    top: -50px;
+    .content-title{
+      font-weight: bold;
+      color: #505050;
+      height: 100px;
+    }
+    .dontent-desc{
+      color:#7B7B7B;
+      height: 181px;
+    }
   }
 }
