@@ -73,7 +73,7 @@ export class MainComponent implements OnInit {
     // });
   }
   processDialog(skill) {
-    // this.showDialog = true;
+    this.showDialog = true;
     this.dialogImgPath = 'assets/images/img_' + skill.id + '@2x.png';
     this.dialogContentDesc = skill.content;
     this.dialogContentTitle = skill.label;
